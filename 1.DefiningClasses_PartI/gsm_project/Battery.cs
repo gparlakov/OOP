@@ -17,11 +17,18 @@ namespace gsm_project
         {
         }
 
+
         public Battery(string model, float hoursIdle, float hoursTalk)
         {
-            this.model = model;
-            this.hoursIdle = hoursIdle;
-            this.hoursTalk = hoursTalk;
+            this.Model = model;
+            this.HoursIdle = hoursIdle;
+            this.HoursTalk = hoursTalk;
+        }
+
+        public string Model
+        {
+            get { return model; }
+            set { this.model = value; }
         }
 
         public float HoursIdle
