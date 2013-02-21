@@ -6,10 +6,12 @@ using System.Threading.Tasks;
 
 namespace gsm_project
 {
-    class Test_GSM
+    public enum BatteryType
     {
-        static void Main(string[] args)
-        {
-        }
+        LiIon = 0,
+        NiMH = 1,
+        NiCD = 2,
+        Polymer = 3
     }
+
 }

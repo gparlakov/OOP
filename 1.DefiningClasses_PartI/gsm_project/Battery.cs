@@ -4,27 +4,29 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
+
 namespace gsm_project
 {
     public class Battery
     {
         private string model;
         private float hoursIdle, hoursTalk;
-
-
+        private BatteryType batteryType;
         public Battery()
-            : this("unknown model", 0, 0)
+            //: this("[unknown owner]", 0, 0, 0)
         {
         }
-
-
-        public Battery(string model, float hoursIdle, float hoursTalk)
+        
+    
+        //constructor with mandatory model and rest can be left blank
+        public Battery(string model, float hoursIdle=0, float hoursTalk=0,BatteryType batteryType = 0)
         {
             this.Model = model;
             this.HoursIdle = hoursIdle;
             this.HoursTalk = hoursTalk;
+            this.batteryType = batteryType;
         }
-
+        
         public string Model
         {
             get { return model; }
@@ -43,9 +45,62 @@ namespace gsm_project
             set { this.hoursTalk = value; }
         }
 
+        public BatteryType BatteryType
+        {
+            get { return this.batteryType; }
+            set { this.batteryType = value; }
+        }
+        
+        /// <summary>
+        ///     Override - gives the battey's properties
+        /// </summary>
+        /// <returns></returns>
         public override string ToString()
         {
-            return string.Format("{0}, Hours Standby {1}, Talk Time {2}",model,HoursIdle,HoursTalk);
+            return string.Format("{0}: {3} Standby {1} h, Talk Time {2} h", this.Model, this.HoursIdle, this.HoursTalk,this.BatteryType);
         }
+
+        /// <summary>
+        ///     Define operator '>' - compare the talk time of the batteries and ignore the idle hours
+        /// </summary>
+        /// <param name="first"></param>
+        /// <param name="second"></param>
+        /// <returns>True if first has more TALK hours than second </returns>
+        public static bool operator > (Battery first, Battery second)
+        {
+            bool firstIsBigger = true;
+            if (first.HoursTalk<second.hoursTalk)
+            {
+                firstIsBigger = false;
+            }
+            return firstIsBigger;	
+        }
+
+        /// <summary>
+        ///     Define operator < - compare the talk time of the batteries and ignore the idle hours
+        /// </summary>
+        /// <param name="first"></param>
+        /// <param name="second"></param>
+        /// <returns> True if first has more TALK hours than second </returns>
+        public static bool operator <(Battery first, Battery second)
+        {
+            bool firstIsBigger = true;
+            if (first.HoursTalk > second.hoursTalk)
+            {
+                firstIsBigger = false;
+            }
+            return firstIsBigger;
+        }
+
+        //public bool operator == (Battery first, Battery second)
+        //{
+        //    bool firstIsBigger = true;
+        //    if (first.HoursTalk == second.hoursTalk)
+        //    {
+        //        firstIsBigger = false;
+        //    }
+        //    return firstIsBigger;
+        //}
+
     }
 }
