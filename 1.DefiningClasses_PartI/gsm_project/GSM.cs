@@ -6,30 +6,37 @@
 
 using System;
 
-namespace gsm_project
+namespace GsmProject
 {
+    /// <summary>
+    ///     GSM Class
+    ///     Exceptions - ArgumentOutOfRange for zero or negative price, display size 
+    /// </summary>
+    /// 
+    //TODO: Property for setting Battery and Display after initialization
     public class GSM
     {
-        private Battery BatteryType;
+        private Battery BatteryInfo;
         private Display displayType;
         private string model,
                        manufacturer,
                        owner;
         private decimal price;
+        private static string iPhone4S;
 
         public GSM()            
         {
         }
 
-        public GSM(string manufacturer, string model,
-            string owner = null, decimal price = 0)
+        public GSM(string manufacturer, string model
+            )
         {
-            this.manufacturer = manufacturer;
-            this.model = model;
-            this.owner = owner;
-            this.price = price;
+            this.Manufacturer = manufacturer;
+            this.Model = model;
+            this.Owner = "[unknown owner]";
+            //this.price = price;
             this.displayType = new Display();
-            this.BatteryType = new Battery();
+            this.BatteryInfo = new Battery();
         }
 
         /// <summary>
@@ -42,14 +49,14 @@ namespace gsm_project
         /// <param name="owner"></param>
         /// <param name="price"></param>
         public GSM(string manufacturer, string model,Display display,Battery battery,
-           string owner = "[unknown owner]", decimal price = 0)
+           decimal price, string owner = "[unknown owner]")
         {
-            this.manufacturer = manufacturer;
-            this.model = model;
-            this.owner = owner;
-            this.price = price;
+            this.Manufacturer = manufacturer;
+            this.Model = model;
+            this.Owner = owner;
+            this.Price = price;
             this.displayType = display;
-            this.BatteryType = battery;
+            this.BatteryInfo = battery;
         }
 
         public string Manufacturer 
@@ -61,13 +68,13 @@ namespace gsm_project
 
             set
             {
-                if (value.Length > 2)
+                if (value.Length > 1)
                 {
                     this.manufacturer = value;
                 }
                 else
                 {
-                    throw new ArgumentOutOfRangeException("Manufacturer's name should be more than 2 symbols");
+                    throw new ArgumentOutOfRangeException("Manufacturer's name should be 2 symbols ot more");
                 }
             }
         }
@@ -78,9 +85,21 @@ namespace gsm_project
                 return this.model;
             }
             set
-            {
+            {                
                 this.model = value;
+                if (this.model=="iPhone4S")
+                {
+                    iPhone4S = "true";
+                }
             }
+        }
+
+        public static GSM IPhone4S
+        {            
+            get
+            {                
+                return new GSM("Apple", "iPhone4S",new Display(4.5f,65535),new Battery("AppleBat4S",BatteryType.NiMH,211,12),1499);                
+            }            
         }
 
         public string Owner
@@ -120,8 +139,14 @@ namespace gsm_project
         /// <returns>GSM's Characteristics</returns>
         public override string ToString()
         {
-            return string.Format("{6}GSM is {0} {1}.\nDisplay {2}\nBattery {3}\nOwner: {4} Price: {5} lv",
-                this.Manufacturer, this.Model, this.displayType, this.BatteryType, this.Owner, this.Price,new String);
+            string result = string.Format("{6}\nGSM is {0} {1}.\nDisplay {2}\nBattery {3}\nOwner: {4}, Price: {5} lv",
+                this.Manufacturer, this.Model, this.displayType, this.BatteryInfo, this.Owner, this.Price,new String('-',25));
+            //if (IPhone4S!="This is not iPhone4S")
+            //{
+            //    result += IPhone4S;
+            //}
+
+            return result;
         }
     }
 }

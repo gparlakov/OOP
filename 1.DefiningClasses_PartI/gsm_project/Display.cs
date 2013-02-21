@@ -4,15 +4,36 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace gsm_project
+namespace GsmProject
 {
+    /// <summary>
+    ///     Represents class Display
+    ///     Exceptions ArgumentOutOfRange  when try to set negative or 0 
+    /// </summary>
     public class Display
     {
         private int colors;
         private float size;
 
         
-        public float Size { get; set; }
+        public float Size 
+        {
+            get
+            {
+                return this.size;
+            }
+            set
+            {
+                if (value > 0)
+                {
+                    this.size = value;
+                }
+                else
+                {
+                    throw new ArgumentOutOfRangeException("The display size must be greater than 1");
+                }
+            }
+        }
         public int Colors     
         {
             get
@@ -22,7 +43,7 @@ namespace gsm_project
 
             set
             {
-                if (value > 0)
+                if (value >= 0)
                 {
                     this.colors = value;
                 }
@@ -34,16 +55,15 @@ namespace gsm_project
             
         }
 
-        public Display()
-            : this (0,0)
+        public Display()            
         {
         }
 
         //constructor with mandatory size(in inches) and rest can be blank 
         public Display(float size, int colors = 0)
         {
-            this.size = size;
-            this.colors = colors;
+            this.Size = size;
+            this.Colors = colors;
         }
 
         /// <summary>

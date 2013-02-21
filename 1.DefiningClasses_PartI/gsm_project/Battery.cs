@@ -5,7 +5,7 @@ using System.Text;
 using System.Threading.Tasks;
 
 
-namespace gsm_project
+namespace GsmProject
 {
     public class Battery
     {
@@ -19,12 +19,12 @@ namespace gsm_project
         
     
         //constructor with mandatory model and rest can be left blank
-        public Battery(string model, float hoursIdle=0, float hoursTalk=0,BatteryType batteryType = 0)
+        public Battery(string model, BatteryType batteryType, float hoursIdle = 0, float hoursTalk = 0) //= BatteryType.LiIon
         {
             this.Model = model;
             this.HoursIdle = hoursIdle;
             this.HoursTalk = hoursTalk;
-            this.batteryType = batteryType;
+            this.BatteryType = batteryType;
         }
         
         public string Model
@@ -36,13 +36,33 @@ namespace gsm_project
         public float HoursIdle
         {
             get { return this.hoursIdle; }
-            set { this.hoursIdle = value; }
+            set
+            {
+                if (value >= 0)
+                {
+                    this.hoursIdle = value;
+                }
+                else
+                {
+                    throw new ArgumentOutOfRangeException("Hours idle can't be negative or 0");
+                }
+            }
         }
 
         public float HoursTalk
         {
             get { return this.hoursTalk; }
-            set { this.hoursTalk = value; }
+            set
+            {
+                if (value >= 0)
+                {
+                    this.hoursTalk = value;
+                }
+                else
+                {
+                    throw new ArgumentOutOfRangeException("Hours tal'k cant be negative or 0");
+                }
+            }
         }
 
         public BatteryType BatteryType
