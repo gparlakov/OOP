@@ -5,6 +5,7 @@
 //the class or part of it). Assume that model and manufacturer are mandatory (the others are optional). All unknown data fill with null.
 
 using System;
+using System.Collections.Generic;
 
 namespace GsmProject
 {
@@ -23,8 +24,8 @@ namespace GsmProject
                        owner;
         private decimal price;
         private static string iPhone4S;
-
-        public GSM()            
+        private List<Call> callHistory;
+        public GSM()
         {
         }
 
@@ -48,7 +49,7 @@ namespace GsmProject
         /// <param name="battery"></param>
         /// <param name="owner"></param>
         /// <param name="price"></param>
-        public GSM(string manufacturer, string model,Display display,Battery battery,
+        public GSM(string manufacturer, string model, Display display, Battery battery,
            decimal price, string owner = "[unknown owner]")
         {
             this.Manufacturer = manufacturer;
@@ -59,7 +60,7 @@ namespace GsmProject
             this.BatteryInfo = battery;
         }
 
-        public string Manufacturer 
+        public string Manufacturer
         {
             get
             {
@@ -85,9 +86,9 @@ namespace GsmProject
                 return this.model;
             }
             set
-            {                
+            {
                 this.model = value;
-                if (this.model=="iPhone4S")
+                if (this.model == "iPhone4S")
                 {
                     iPhone4S = "true";
                 }
@@ -95,11 +96,11 @@ namespace GsmProject
         }
 
         public static GSM IPhone4S
-        {            
+        {
             get
-            {                
-                return new GSM("Apple", "iPhone4S",new Display(4.5f,65535),new Battery("AppleBat4S",BatteryType.NiMH,211,12),1499);                
-            }            
+            {
+                return new GSM("Apple", "iPhone4S", new Display(4.5f, 65535), new Battery("AppleBat4S", BatteryType.NiMH, 211, 12), 1499);
+            }
         }
 
         public string Owner
@@ -114,7 +115,7 @@ namespace GsmProject
             }
         }
 
-        public decimal Price 
+        public decimal Price
         {
             get
             {
@@ -126,12 +127,46 @@ namespace GsmProject
                 {
                     this.price = value;
                 }
-                else 
+                else
                 {
                     throw new ArgumentOutOfRangeException("Price should be more than 0 ");
                 }
             }
         }
+
+        //sets a new Call
+        public Call CallHistory
+        {
+
+            set
+            {
+                this.callHistory.Add(value);
+            }
+        }
+
+        //prints all the calls
+        public void CallHistoryPrint
+        {
+            get
+            {
+                int indexer = 1;
+                foreach (var call in this.callHistory)
+                {
+                    Console.WriteLine("{0}:{1}",indexer,call);
+                }
+                return;
+            }
+        }
+
+        /// <summary>
+        ///     Removes a call by its index (last call - leave blank)
+        /// </summary>
+        /// <param name="index"></param>
+        public void RemoveCall(int index = callHistory.Count)
+        {
+            this.callHistory.RemoveAt(index - 1);
+        }
+
 
         /// <summary>
         /// Override ToString()
@@ -140,7 +175,7 @@ namespace GsmProject
         public override string ToString()
         {
             string result = string.Format("{6}\nGSM is {0} {1}.\nDisplay {2}\nBattery {3}\nOwner: {4}, Price: {5} lv",
-                this.Manufacturer, this.Model, this.displayType, this.BatteryInfo, this.Owner, this.Price,new String('-',25));
+                this.Manufacturer, this.Model, this.displayType, this.BatteryInfo, this.Owner, this.Price, new String('-', 25));
             //if (IPhone4S!="This is not iPhone4S")
             //{
             //    result += IPhone4S;

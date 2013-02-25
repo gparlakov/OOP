@@ -60,9 +60,17 @@ namespace GsmTest
                 //myNewGsm1.Owner = Console.ReadLine();
                 //Console.WriteLine(myNewGsm1);
 
-                //directly print to the console
-                Console.WriteLine("\nDirectly print  GSM.iPhone4S to console");
-                Console.WriteLine(GSM.IPhone4S);
+                //directly print to the console the static property iphone
+                //Console.WriteLine("\nDirectly print  GSM.iPhone4S to console");
+                //Console.WriteLine(GSM.IPhone4S);
+
+
+                //testing the Call class
+                //Call newCall = new Call("112",30);
+                //Call newCall1 = new Call("0887766551", 159);           
+                //Console.WriteLine(newCall);
+                //Console.WriteLine(newCall1);
+
             }
             catch (ArgumentOutOfRangeException ex)
             {
