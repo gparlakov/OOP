@@ -24,7 +24,7 @@ namespace GsmProject
                        owner;
         private decimal price;        
         private List<Call> callHistory;
-        private int callsCounter=0;
+        
 
         /// <summary>
         /// Blank constructor
@@ -211,6 +211,14 @@ namespace GsmProject
         }
 
 
+        public void RemoveLongestCall()
+        {
+            Call[] tempList = new Call[this.callHistory.Count];
+            this.callHistory.CopyTo(tempList);
+            Array.Sort<Call>(tempList, (x, y) => x.Duration.CompareTo(y.Duration));
+            Call longestCall = tempList[tempList.Length-1];
+            this.callHistory.RemoveAt(this.callHistory.IndexOf(longestCall));                
+        }
         //TODO : CallHistory in a file
     }
 }

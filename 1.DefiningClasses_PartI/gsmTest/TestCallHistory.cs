@@ -24,11 +24,12 @@ namespace GsmTest
             testGsm.AddCallToHistory = newCall1;
 
             testGsm.CallHistoryPrint(10);
-            Console.WriteLine("Price is {0:f2} lv", testGsm.CallsPrice(0.5f));
+            Console.WriteLine("Price is {0:f2} lv", testGsm.CallsPrice(0.37f));
 
-            testGsm.RemoveCall(4);
+            testGsm.RemoveLongestCall();
+            //testGsm.RemoveCall(4);
             testGsm.CallHistoryPrint(10);
-            Console.WriteLine("Price is {0:f2} lv", testGsm.CallsPrice(0.5f));
+            Console.WriteLine("Price is {0:f2} lv", testGsm.CallsPrice(0.37f));
             testGsm.ClearCallHistory();
             testGsm.CallHistoryPrint();
         }
