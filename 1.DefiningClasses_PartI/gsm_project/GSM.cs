@@ -22,15 +22,24 @@ namespace GsmProject
         private string model,
                        manufacturer,
                        owner;
-        private decimal price;
-        private static string iPhone4S;
+        private decimal price;        
         private List<Call> callHistory;
+        private int callsCounter=0;
+
+        /// <summary>
+        /// Blank constructor
+        /// </summary>
         public GSM()
+            : this(null, null)
         {
         }
 
-        public GSM(string manufacturer, string model
-            )
+        /// <summary>
+        /// The least possible constructor with Manufacturer and Model mandatory
+        /// </summary>
+        /// <param name="manufacturer"></param>
+        /// <param name="model"></param>
+        public GSM(string manufacturer, string model)
         {
             this.Manufacturer = manufacturer;
             this.Model = model;
@@ -38,6 +47,7 @@ namespace GsmProject
             //this.price = price;
             this.displayType = new Display();
             this.BatteryInfo = new Battery();
+            this.callHistory = new List<Call>();            
         }
 
         /// <summary>
@@ -45,9 +55,9 @@ namespace GsmProject
         /// </summary>
         /// <param name="manufacturer"></param>
         /// <param name="model"></param>
-        /// <param name="display"></param>
-        /// <param name="battery"></param>
-        /// <param name="owner"></param>
+        /// <param name="display">Object of class Display</param>
+        /// <param name="battery">Object of class Battery</param>
+        /// <param name="owner">String</param>
         /// <param name="price"></param>
         public GSM(string manufacturer, string model, Display display, Battery battery,
            decimal price, string owner = "[unknown owner]")
@@ -58,6 +68,7 @@ namespace GsmProject
             this.Price = price;
             this.displayType = display;
             this.BatteryInfo = battery;
+            this.callHistory = new List<Call>();            
         }
 
         public string Manufacturer
@@ -66,17 +77,9 @@ namespace GsmProject
             {
                 return this.manufacturer;
             }
-
             set
             {
-                if (value.Length > 1)
-                {
-                    this.manufacturer = value;
-                }
-                else
-                {
-                    throw new ArgumentOutOfRangeException("Manufacturer's name should be 2 symbols ot more");
-                }
+                this.manufacturer = value;
             }
         }
         public string Model
@@ -88,13 +91,12 @@ namespace GsmProject
             set
             {
                 this.model = value;
-                if (this.model == "iPhone4S")
-                {
-                    iPhone4S = "true";
-                }
             }
         }
 
+        /// <summary>
+        /// Holds a GSM instance information about iPhone
+        /// </summary>
         public static GSM IPhone4S
         {
             get
@@ -134,39 +136,63 @@ namespace GsmProject
             }
         }
 
-        //sets a new Call
-        public Call CallHistory
+        /// <summary>
+        /// Adds a call to the CallHistory
+        /// </summary>
+        public Call AddCallToHistory
         {
-
             set
             {
-                this.callHistory.Add(value);
+                this.callHistory.Add(value);                
             }
         }
 
-        //prints all the calls
-        public void CallHistoryPrint
+        
+        
+        /// <summary>
+        /// Prints last calls from history
+        /// </summary>
+        /// <param name="numberCalls">How many calls to print </param>        
+        public void CallHistoryPrint(int numberCalls = 10)
         {
-            get
+            Console.WriteLine("{1} Printing last {0} calls: {1}",numberCalls,new string('-',15));
+            for (int i = this.callHistory.Count-1,counter=0; i >= 0 && counter < numberCalls; i--,counter++)
             {
-                int indexer = 1;
-                foreach (var call in this.callHistory)
-                {
-                    Console.WriteLine("{0}:{1}",indexer,call);
-                }
-                return;
+                Console.WriteLine("{0} : {1}",i+1,this.callHistory[i]);
             }
         }
 
         /// <summary>
-        ///     Removes a call by its index (last call - leave blank)
+        ///     Removes a call by its index
         /// </summary>
-        /// <param name="index"></param>
-        public void RemoveCall(int index = callHistory.Count)
+        /// <param name="index">As indexed in CallHistoryPrint - meaning the first ever call was number 1  </param>
+        public void RemoveCall(int index)
         {
             this.callHistory.RemoveAt(index - 1);
         }
 
+        /// <summary>
+        /// Clears tha call history
+        /// </summary>
+        public void ClearCallHistory()
+        {
+            this.callHistory.Clear();            
+        }
+
+        /// <summary>
+        /// Calculates the total cost of calls 
+        /// </summary>
+        /// <param name="pricePerMinute">Price per minute</param>
+        /// <returns></returns>
+        public float CallsPrice(float pricePerMinute)
+        {
+            float time = 0;
+            foreach (var item in this.callHistory)
+            {
+                time += item.Duration;
+            }
+            return (time * pricePerMinute) / 60;
+        }
 
         /// <summary>
         /// Override ToString()
@@ -183,5 +209,8 @@ namespace GsmProject
 
             return result;
         }
+
+
+        //TODO : CallHistory in a file
     }
 }

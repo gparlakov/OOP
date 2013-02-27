@@ -1,8 +1,5 @@
 ﻿using System;
-using System.Collections.Generic;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace GsmProject
 {
@@ -96,10 +93,13 @@ namespace GsmProject
             this.PhoneNumber = number;
             this.Duration = duration;
         }
-
+        /// <summary>
+        /// Returns the info describing the call as a string
+        /// </summary>
+        /// <returns></returns>
         public override string ToString()
         {
-            return string.Format("On date[{0:dd,MM,yy}] time[{0:HH:MM:ss}] A call was made to {1}; Duration {2} min, {3} sec",DateTimeOfCall,PhoneNumber,duration/60,duration%60);
+            return string.Format("On date[{0:dd,MM,yy}] time[{0:HH:MM:ss}] A call was made to {1,10}: Duration {2} min, {3} sec",DateTimeOfCall,PhoneNumber,duration/60,duration%60);
         }
 
     }
