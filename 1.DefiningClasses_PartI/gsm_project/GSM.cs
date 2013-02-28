@@ -29,8 +29,7 @@ namespace GsmProject
         /// <summary>
         /// Blank constructor
         /// </summary>
-        public GSM()
-            : this(null, null)
+        public GSM()            
         {
         }
 
@@ -43,10 +42,10 @@ namespace GsmProject
         {
             this.Manufacturer = manufacturer;
             this.Model = model;
-            this.Owner = "[unknown owner]";
-            //this.price = price;
-            this.displayType = new Display();
-            this.BatteryInfo = new Battery();
+            //this.Owner = "[unknown owner]";
+            ////this.price = price;
+            //this.displayType = new Display();
+            //this.BatteryInfo = new Battery();
             this.callHistory = new List<Call>();            
         }
 

@@ -43,7 +43,6 @@ namespace GsmTest
                 //Console.WriteLine(my.Manufacturer);
                 my.Model = "Desire";
 
-
                 //test the battery class
                 Battery bat = new Battery();
                 //Console.WriteLine(bat);
@@ -61,7 +60,6 @@ namespace GsmTest
                 //Console.WriteLine(display1);
                 Display display2 = new Display(5, 65535);
                 //Console.WriteLine(display2);
-
 
                 //Console.WriteLine(my);
                 //Console.WriteLine(myNewGsm);
