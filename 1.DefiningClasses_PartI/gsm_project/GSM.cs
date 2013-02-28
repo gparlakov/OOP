@@ -31,6 +31,7 @@ namespace GsmProject
         /// </summary>
         public GSM()            
         {
+            this.callHistory = new List<Call>(); 
         }
 
         /// <summary>
@@ -39,6 +40,7 @@ namespace GsmProject
         /// <param name="manufacturer"></param>
         /// <param name="model"></param>
         public GSM(string manufacturer, string model)
+            :this()
         {
             this.Manufacturer = manufacturer;
             this.Model = model;
@@ -46,7 +48,7 @@ namespace GsmProject
             ////this.price = price;
             //this.displayType = new Display();
             //this.BatteryInfo = new Battery();
-            this.callHistory = new List<Call>();            
+                       
         }
 
         /// <summary>
@@ -60,14 +62,14 @@ namespace GsmProject
         /// <param name="price"></param>
         public GSM(string manufacturer, string model, Display display, Battery battery,
            decimal price, string owner = "[unknown owner]")
+            :this()
         {
             this.Manufacturer = manufacturer;
             this.Model = model;
             this.Owner = owner;
             this.Price = price;
             this.displayType = display;
-            this.BatteryInfo = battery;
-            this.callHistory = new List<Call>();            
+            this.BatteryInfo = battery;                      
         }
 
         public string Manufacturer

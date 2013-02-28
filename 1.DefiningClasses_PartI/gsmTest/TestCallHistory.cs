@@ -7,7 +7,7 @@ namespace GsmTest
     {
         public static void StartTest()
         {
-            GSM testGsm = new GSM();
+            GSM testGsm = new GSM("HTC", "one");
             Call firstCall = new Call("0899", 989);
             //testing the Call class
             Call newCall = new Call("112", 30);
