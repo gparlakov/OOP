@@ -69,13 +69,14 @@ namespace GsmTest
                 //Console.WriteLine(myNewGsm1);
 
                 //Task 7:
-                GSM[] gsmArray = new GSM[4];
+                GSM[] gsmArray = new GSM[5];
                 GSM myNewGsm = new GSM("Sony Ericsson", "NEO V", display2, bat3, 400, "Myself");
                 GSM myNewGsm1 = GSM.IPhone4S;
                 gsmArray[0] = myNewGsm;
                 gsmArray[1] = myNewGsm1;
                 gsmArray[2] = my;
                 gsmArray[3] = new GSM("Nokia", "Asha");
+                gsmArray[4] = new GSM("Sony", "Neo V", new Display(1.5f, 10), new Battery("Battery Model 1",BatteryType.Polymer, 25, 7), 1357m, "Academian");
 
                 foreach (var gsm in gsmArray)
                 {
