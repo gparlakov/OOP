@@ -1,7 +1,7 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 2012
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "1.Point3D", "1.Point3D\1.Point3D.csproj", "{53B6B04D-450B-4CFA-9422-FD06697EB171}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "1,2,3,4.Point3D", "1.Point3D\1,2,3,4.Point3D.csproj", "{53B6B04D-450B-4CFA-9422-FD06697EB171}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
