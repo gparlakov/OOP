@@ -6,12 +6,9 @@ namespace ThreeDimensionalSpace
 {
     static class PathStorage
     {
+        //path and file name - can be accessed through properties Location and FileName
         static private string location = "..\\..\\paths\\";
-        static private string fileName = "path1.pth";
-
-        //static public PathStorage()
-        //{            
-        //}
+        static private string fileName = "path1.pth";               
 
         /// <summary>
         /// Use this property to get/set the folder of the file in which to store the Path
@@ -76,7 +73,8 @@ namespace ThreeDimensionalSpace
         }
 
         /// <summary>
-        /// Saves a path to the previously defined Location/FileName a
+        /// Saves a path to the previously defined Location/FileName 
+        /// Throws exception if file with that name already exists
         /// </summary>
         static public void SavePath(Path path)
         {
@@ -99,6 +97,10 @@ namespace ThreeDimensionalSpace
             }
         }
 
+        /// <summary>
+        /// Adds a point to the end of the file(end of path) and saves to the same file
+        /// </summary>
+        /// <param name="point"></param>
         static public void AddPointToFile(Point3D point)
         {
             Path tempPath = PathStorage.ReadPathFromFile();
