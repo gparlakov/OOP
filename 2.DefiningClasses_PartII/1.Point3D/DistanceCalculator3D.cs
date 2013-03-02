@@ -1,8 +1,6 @@
 ﻿using System;
-using System.Collections.Generic;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+
 
 namespace ThreeDimensionalSpace
 {
@@ -16,9 +14,9 @@ namespace ThreeDimensionalSpace
         /// <param name="secondAbscis">Second poitn horizontal</param>
         /// <param name="secondOordinate">Second point vetical</param>
         /// <returns></returns>
-        public static float CalculateDistance2D(float firstAbscis,float firstOordinate, float secondAbscis, float secondOordinate)
+        public static float CalculateDistance2D(float firstAbscis, float firstOordinate, float secondAbscis, float secondOordinate)
         {
-            return (float)Math.Sqrt(Math.Pow(Math.Abs(firstAbscis - secondAbscis), 2) + Math.Pow(Math.Abs(firstOordinate - secondOordinate), 2)); 
+            return (float)Math.Sqrt(Math.Pow(Math.Abs(firstAbscis - secondAbscis), 2) + Math.Pow(Math.Abs(firstOordinate - secondOordinate), 2));
         }
 
         /// <summary>
@@ -28,7 +26,7 @@ namespace ThreeDimensionalSpace
         /// <param name="second"></param>
         /// <returns></returns>
         public static float CalculateDistance3D(Point3D first, Point3D second)
-        {            
+        {
             ////calculate distance between 2D X and Z coordinates 
             //float distanceXZ = CalculateDistance2D(first.X,first.Z, second.X, second.Z);
             //calculate distance between 2D Y and Z coordinates 

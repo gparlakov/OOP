@@ -11,7 +11,7 @@ namespace ThreeDimensionalSpace
         public int X { get; set; }
         public int Y { get; set; }
         public int Z { get; set; }
-        
+
         public string Name
         {
             get
@@ -30,10 +30,10 @@ namespace ThreeDimensionalSpace
                 }
             }
         }
-        private static readonly Point3D center = new Point3D(0, 0, 0);
+        private static readonly Point3D center = new Point3D(0, 0, 0,"center");
 
-        public Point3D(int x, int y, int z,string name=null)    
-            :this()
+        public Point3D(int x, int y, int z, string name)
+            : this()
         {
             this.X = x;
             this.Y = y;
@@ -51,7 +51,7 @@ namespace ThreeDimensionalSpace
 
         public override string ToString()
         {
-            return String.Format("Point[{3}]: [{0},{1},{2}]",  this.X, this.Y, this.Z,this.Name);
+            return String.Format("Point[{3}]: [{0},{1},{2}]", this.X, this.Y, this.Z, this.Name);
         }
     }
 }
