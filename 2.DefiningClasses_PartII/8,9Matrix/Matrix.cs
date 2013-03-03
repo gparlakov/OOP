@@ -1,14 +1,10 @@
 ﻿using System;
-using System.Collections.Generic;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using VersionAttribute;
 
-namespace VersionAttribute
+namespace Matrix
 {    
-    [Version(2,2)]
-    class Matrix<T>
+    [VersionAttribute.Version(1,9)]
+    public class Matrix<T>
         where T : struct,IComparable,IFormattable,IComparable<T>,IEquatable<T>
     {
         private T[,] matrix;
@@ -99,6 +95,19 @@ namespace VersionAttribute
         private void ExceptionMethod()
         {
             throw new ArgumentOutOfRangeException(string.Format("Index is outside of boundaries of Matrix."));
+        }
+
+        public T[,] PullMatrix()
+        {
+            T[,] result = new T[this.rows, this.cols];
+            for (int row = 0; row < this.rows; row++)
+            {
+                for (int col = 0; col < this.cols; col++)
+                {
+                    result[row, col] = this.matrix[row, col];
+                }
+            }
+            return result;
         }
         #endregion
 

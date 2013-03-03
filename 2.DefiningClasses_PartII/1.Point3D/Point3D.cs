@@ -1,10 +1,10 @@
 ﻿using System;
 using System.Linq;
-
+using VersionAttribute;
 
 namespace ThreeDimensionalSpace
 {   
-    [VersionAttribute.Version(1,2)]
+    [VersionAttribute.Version(1,5)]
     public struct Point3D
     {
         private string name;
@@ -49,6 +49,7 @@ namespace ThreeDimensionalSpace
             }
         }
 
+        [VersionAttribute.Version(1, 1)]
         public override string ToString()
         {
             return String.Format("Point[{3}]: [{0},{1},{2}]", this.X, this.Y, this.Z, this.Name);

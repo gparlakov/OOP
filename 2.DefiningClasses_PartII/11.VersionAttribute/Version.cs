@@ -1,8 +1,4 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace VersionAttribute
 {
@@ -46,10 +42,6 @@ namespace VersionAttribute
             {
                 this.verNumber = string.Format("Version is {0}, {1}, {2}", this.Main, this.Secondary);
             }
-        }
-
-        public Version()
-        {
         }
 
         public Version(int main, int secondary)

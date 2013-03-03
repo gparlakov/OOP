@@ -1,12 +1,9 @@
 ﻿using System;
-using System.Collections.Generic;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
-namespace VersionAttribute
+namespace Matrix
 {
-    [Version(VerNumber = "2.3")]
+    [VersionAttribute.Version(2,3)]
     class TestMatrix
     {
         static void Main()
