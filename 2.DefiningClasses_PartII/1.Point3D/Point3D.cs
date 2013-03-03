@@ -1,10 +1,10 @@
-﻿
-
-using System;
+﻿using System;
 using System.Linq;
 
+
 namespace ThreeDimensionalSpace
-{
+{   
+    [VersionAttribute.Version(1,2)]
     public struct Point3D
     {
         private string name;

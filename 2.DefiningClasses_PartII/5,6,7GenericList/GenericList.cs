@@ -27,7 +27,7 @@ namespace GenericList
         }
 
         /// <summary>
-        /// Initializes the collection with the default literal for <T>
+        /// Clears/Initializes the collection with the default literal for <T>
         /// </summary>
         public void Initialize()
         {
@@ -292,21 +292,21 @@ namespace GenericList
 
         }
 
-        /// <summary>
-        /// Checks if element at position index is == to element
-        /// </summary>
-        /// <param name="index"></param>
-        /// <param name="element"></param>
-        /// <returns></returns>
-        public bool IsEqual(int index, T element)
-        {
-            bool isEqual = true;
-            if (this.genericList[index].ToString() != element.ToString())
-            {
-                isEqual = false;
-            }
-            return isEqual;
-        }
+        ///// <summary>
+        ///// Checks if element at position index is == to element
+        ///// </summary>
+        ///// <param name="index"></param>
+        ///// <param name="element"></param>
+        ///// <returns></returns>
+        //public bool IsEqual(int index, T element)
+        //{
+        //    bool isEqual = true;
+        //    if (this.genericList[index].ToString() != element.ToString())
+        //    {
+        //        isEqual = false;
+        //    }
+        //    return isEqual;
+        //}
 
         /// <summary>
         /// Finds Max element from a given index onwards

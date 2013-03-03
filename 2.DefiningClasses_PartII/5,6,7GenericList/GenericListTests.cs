@@ -43,9 +43,12 @@ namespace GenericList
                 Console.WriteLine("the capacity = " + myList.Length);
 
                 myList.Add("anotherTest");
+                Console.WriteLine();
                 Console.WriteLine(myList);
                 Console.WriteLine("the count = " + myList.Count);
                 Console.WriteLine("the capacity = " + myList.Length);
+                Console.WriteLine("index of element <test> is {0}",myList.IndexOf("test"));
+
 
                 
                 //Console.WriteLine(myList.Max(0));
