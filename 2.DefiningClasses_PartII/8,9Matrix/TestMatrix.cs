@@ -10,14 +10,18 @@ namespace Matrix
         {
             try
             {
-                //Matrix<int> matrix = new Matrix<int>(5, 5);
-                //matrix[0, 0] = 1;
-                //Console.WriteLine(matrix[0, 0]);
+                Matrix<int> matrix = new Matrix<int>(5, 5);
+                matrix[0, 0] = 156;
+                matrix[1, 0] = 2;
+                Console.WriteLine(matrix[0, 0]);
+                Console.WriteLine(matrix[1, 0]);
+                Console.WriteLine(matrix[1, 1]);
 
                 //Throw excepption
                 //Matrix<int> matrix2 = new Matrix<int>(4, 5);
                 //Matrix<int> sum = matrix + matrix2;
                 //int[,] arr1 = new {{1, 3, 4},{5, 6, 9},{-5,6,-8}};
+
                 int[,] arr = { { 1, 2, 3 }, { 3, 4, 5 }, { 6, 7, 8 } };
                 int[,] arr1 = { { 11, -2, 3 }, { -8, 4, 2 }, { -1, -1, -2 } };
 

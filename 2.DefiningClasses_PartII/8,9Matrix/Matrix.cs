@@ -7,9 +7,9 @@ namespace Matrix
     public class Matrix<T>
         where T : struct,IComparable,IFormattable,IComparable<T>,IEquatable<T>
     {
-        private T[,] matrix;
-        private int rows;
-        private int cols;
+        private readonly T[,] matrix;
+        private readonly int rows;
+        private readonly int cols;
 
         #region constructors
         public Matrix()
@@ -97,6 +97,10 @@ namespace Matrix
             throw new ArgumentOutOfRangeException(string.Format("Index is outside of boundaries of Matrix."));
         }
 
+        /// <summary>
+        /// For testing purposes
+        /// </summary>
+        /// <returns>Two dimensional Array of T</returns>
         public T[,] PullMatrix()
         {
             T[,] result = new T[this.rows, this.cols];
