@@ -44,7 +44,7 @@ namespace GsmTest
                 my.Model = "Desire";
 
                 //test the battery class
-                Battery bat = new Battery();
+                Battery bat = new Battery("myBtt", BatteryType.LiIon);
                 //Console.WriteLine(bat);
                 Battery bat1 = new Battery("Sony 1234h", BatteryType.Polymer);
                 //Console.WriteLine(bat1);

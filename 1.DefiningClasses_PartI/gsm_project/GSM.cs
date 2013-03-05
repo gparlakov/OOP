@@ -22,7 +22,8 @@ namespace GsmProject
         private string model,
                        manufacturer,
                        owner;
-        private decimal price;        
+        
+        private decimal? price;
         private List<Call> callHistory;
         
 
@@ -34,23 +35,7 @@ namespace GsmProject
             this.callHistory = new List<Call>(); 
         }
 
-        /// <summary>
-        /// The least possible constructor with Manufacturer and Model mandatory
-        /// </summary>
-        /// <param name="manufacturer"></param>
-        /// <param name="model"></param>
-        public GSM(string manufacturer, string model)
-            :this()
-        {
-            this.Manufacturer = manufacturer;
-            this.Model = model;
-            //this.Owner = "[unknown owner]";
-            ////this.price = price;
-            //this.displayType = new Display();
-            //this.BatteryInfo = new Battery();
-                       
-        }
-
+        
         /// <summary>
         ///     Construct an instance of GSM Class with given parameters. Manufacturer and Model are mandatory
         /// </summary>
@@ -61,16 +46,29 @@ namespace GsmProject
         /// <param name="owner">String</param>
         /// <param name="price"></param>
         public GSM(string manufacturer, string model, Display display, Battery battery,
-           decimal price, string owner = "[unknown owner]")
+           decimal? price, string owner)
             :this()
         {
             this.Manufacturer = manufacturer;
             this.Model = model;
             this.Owner = owner;
-            this.Price = price;
+            this.price = price;
             this.displayType = display;
             this.BatteryInfo = battery;                      
         }
+
+        /// <summary>
+        /// The least possible constructor with Manufacturer and Model mandatory
+        /// </summary>
+        /// <param name="manufacturer"></param>
+        /// <param name="model"></param>
+        public GSM(string manufacturer, string model)
+            : this(manufacturer, model, null, null, null, null)
+        {
+            this.Manufacturer = manufacturer;
+            this.Model = model;
+        }
+
 
         public string Manufacturer
         {
@@ -94,17 +92,7 @@ namespace GsmProject
                 this.model = value;
             }
         }
-
-        /// <summary>
-        /// Holds a GSM instance information about iPhone
-        /// </summary>
-        public static GSM IPhone4S
-        {
-            get
-            {
-                return new GSM("Apple", "iPhone4S", new Display(4.5f, 65535), new Battery("AppleBat4S", BatteryType.NiMH, 211, 12), 1499);
-            }
-        }
+              
 
         public string Owner
         {
@@ -118,7 +106,7 @@ namespace GsmProject
             }
         }
 
-        public decimal Price
+        public decimal? Price
         {
             get
             {
@@ -134,6 +122,17 @@ namespace GsmProject
                 {
                     throw new ArgumentOutOfRangeException("Price should be more than 0 ");
                 }
+            }
+        }
+
+        /// <summary>
+        /// Holds a GSM instance information about iPhone
+        /// </summary>
+        public static GSM IPhone4S
+        {
+            get
+            {
+                return new GSM("Apple", "iPhone4S", new Display(4.5f, 65535), new Battery("AppleBat4S", BatteryType.NiMH, 211, 12), 1499, null);
             }
         }
 

@@ -6,30 +6,37 @@ namespace GsmProject
     public class Battery
     {
         private string model;
-        private float hoursIdle, hoursTalk;
-        private BatteryType batteryType;
-        public Battery()
-            //: this("[unknown owner]", 0, 0, 0)
-        {
-        }
+        private float? hoursIdle, hoursTalk;
+        private BatteryType batteryType;       
         
     
         //constructor with mandatory model and rest can be left blank
-        public Battery(string model, BatteryType batteryType, float hoursIdle = 0, float hoursTalk = 0) //= BatteryType.LiIon
+        public Battery(string model, BatteryType batteryType, float? hoursIdle, float? hoursTalk) //= BatteryType.LiIon
         {
             this.Model = model;
-            this.HoursIdle = hoursIdle;
-            this.HoursTalk = hoursTalk;
+            this.hoursIdle = hoursIdle;
+            this.hoursTalk = hoursTalk;
             this.BatteryType = batteryType;
         }
-        
+
+        public Battery(string model, BatteryType batteryType) //= BatteryType.LiIon
+            :this(model,batteryType,null,null)
+        {            
+        }
+
+        ///Three arguments constructor that assumes hours equals hours talk and idle
+        public Battery(string model, BatteryType batteryType, float? hours) 
+            :this(model, batteryType, hours, hours)
+        {            
+        }
+
         public string Model
         {
             get { return model; }
             set { this.model = value; }
         }
 
-        public float HoursIdle
+        public float? HoursIdle
         {
             get { return this.hoursIdle; }
             set
@@ -45,7 +52,7 @@ namespace GsmProject
             }
         }
 
-        public float HoursTalk
+        public float? HoursTalk
         {
             get { return this.hoursTalk; }
             set
