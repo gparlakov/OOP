@@ -1,0 +1,32 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 2012
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "1.ExtensionForStringBuilder", "1.ExtensionForStringBuilder\1.ExtensionForStringBuilder.csproj", "{C325C867-0A42-45C4-889A-EA882ECA1C6E}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "2.ExtensionsForIEnumerable", "2.ExtensionsForIEnumerable\2.ExtensionsForIEnumerable.csproj", "{08C0F598-9BB8-41F0-AC78-85CB0C4D1F71}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "3,4,5.StudentsSearch", "3.StudentsSearch\3,4,5.StudentsSearch.csproj", "{61DA4DE7-DCDF-4957-8311-719D795B38C7}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{C325C867-0A42-45C4-889A-EA882ECA1C6E}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{C325C867-0A42-45C4-889A-EA882ECA1C6E}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{C325C867-0A42-45C4-889A-EA882ECA1C6E}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{C325C867-0A42-45C4-889A-EA882ECA1C6E}.Release|Any CPU.Build.0 = Release|Any CPU
+		{08C0F598-9BB8-41F0-AC78-85CB0C4D1F71}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{08C0F598-9BB8-41F0-AC78-85CB0C4D1F71}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{08C0F598-9BB8-41F0-AC78-85CB0C4D1F71}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{08C0F598-9BB8-41F0-AC78-85CB0C4D1F71}.Release|Any CPU.Build.0 = Release|Any CPU
+		{61DA4DE7-DCDF-4957-8311-719D795B38C7}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{61DA4DE7-DCDF-4957-8311-719D795B38C7}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{61DA4DE7-DCDF-4957-8311-719D795B38C7}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{61DA4DE7-DCDF-4957-8311-719D795B38C7}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+EndGlobal
