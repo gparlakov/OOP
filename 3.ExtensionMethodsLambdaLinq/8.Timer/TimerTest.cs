@@ -1,15 +1,25 @@
 ﻿using System;
-using System.Collections.Generic;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace Timer
 {
     class TimerTest
     {
+        delegate void OneParamDelagate<T>(T param);
+
+        static void Print(string mes)
+        {
+            Console.WriteLine(mes);
+        }
+        
         static void Main(string[] args)
         {
+            OneParamDelagate<string> myDelegate = Print;
+            myDelegate += delegate(string param)
+                {
+                    Console.WriteLine("this is a time delay");
+                };
+            MyTimer<string>.RunThis(2, myDelegate,"Nakov");
         }
     }
 }

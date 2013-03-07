@@ -1,23 +1,32 @@
 ﻿using System;
 using System.Threading;
-using System.Collections.Generic;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+
 
 namespace Timer
-{
-    delegate void Executer<T> (T param);
-    
-    public static class MyTimer
+{   
+    public static class MyTimer<T>
     {
-        public static int Delay{get;set;}
         
+        /// <summary>
+        /// Runs functions in delegate with a delay of seconds
+        /// </summary>
+        /// <param name="delay">seconds</param>
+        /// <param name="deleg">Delagete</param>
+        /// <param name="paramsForDelegate"></param>
+        public static void RunThis(int delay,Delegate deleg,T paramsForDelegate)
+        {               
+            deleg.DynamicInvoke(paramsForDelegate);
+            Console.WriteLine("timer repeats every {0} seconds", delay);
+            Console.WriteLine("--Press any key to exit--");
 
-        public static void RunThis(int delay)
-        {            
-            Thread.Sleep(delay*1000);
-
+            Thread.Sleep(delay * 1000);    
+            
+            if (Console.KeyAvailable)
+            {    
+                return;                
+            }
+            MyTimer<T>.RunThis(delay, deleg,paramsForDelegate);
         }
     }
 }
