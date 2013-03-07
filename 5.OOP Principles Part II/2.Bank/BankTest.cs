@@ -1,8 +1,5 @@
 ﻿using System;
-using System.Collections.Generic;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace Bank
 {
@@ -10,10 +7,15 @@ namespace Bank
     {
         static void Main()
         {
-            Customer person = new Customer("Pesho", CustomerType.Individual);
-            Console.WriteLine(person.CustomerType + "\nName: " + person.Name);
-            
-           
+            try
+            {
+                Customer person = new Customer("Pesho", CustomerType.Individual);
+                Console.WriteLine(person.CustomerType + "\nName: " + person.Name);
+            }
+            catch (BankException ex)
+            {
+                Console.WriteLine(ex.Message);
+            }            
         }
     }
 }
