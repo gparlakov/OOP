@@ -9,7 +9,9 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "3,4,5.StudentsSearch", "3.S
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "6.DevisibleBy5And7", "DevisibleBy5And7\6.DevisibleBy5And7.csproj", "{A0C4D7BC-CF5E-48A0-BCE1-89451F758647}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "8.Timer", "8.Timer\8.Timer.csproj", "{E7D7ACAC-8B03-4210-B6A4-B0C0A628458B}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "7.Timer", "8.Timer\7.Timer.csproj", "{E7D7ACAC-8B03-4210-B6A4-B0C0A628458B}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "8.MyEventHandler", "MyEventHandler\8.MyEventHandler.csproj", "{1BD16DF8-6D65-4DE0-A805-FA45C2734EBF}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -37,6 +39,10 @@ Global
 		{E7D7ACAC-8B03-4210-B6A4-B0C0A628458B}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{E7D7ACAC-8B03-4210-B6A4-B0C0A628458B}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{E7D7ACAC-8B03-4210-B6A4-B0C0A628458B}.Release|Any CPU.Build.0 = Release|Any CPU
+		{1BD16DF8-6D65-4DE0-A805-FA45C2734EBF}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{1BD16DF8-6D65-4DE0-A805-FA45C2734EBF}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{1BD16DF8-6D65-4DE0-A805-FA45C2734EBF}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{1BD16DF8-6D65-4DE0-A805-FA45C2734EBF}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

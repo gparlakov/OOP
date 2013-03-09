@@ -19,7 +19,7 @@ namespace Timer
                 {
                     Console.WriteLine("this is a time delay");
                 };
-            MyTimer<string>.RunThis(2, myDelegate,"Nakov");
+            MyTimer<string>.RunThis(2, myDelegate,"Test string.....\n------------");
         }
     }
 }
