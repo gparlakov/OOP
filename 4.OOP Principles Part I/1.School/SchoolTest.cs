@@ -1,4 +1,7 @@
-﻿using System;
+﻿/*We are given a school. In the school there are classes of students. Each class has a set of  * teachers. Each teacher teaches a set of disciplines. Students have name and unique class number.  * Classes have unique text identifier. Teachers have name. Disciplines have name, number of lectures and number  * of exercises. Both teachers and students are people. Students, classes, teachers and disciplines could have optional  * comments (free text block).	Your task is to identify the classes (in terms of  OOP) and their attributes and operations, encapsulate their fields, 
+ * define the class hierarchy and create a class diagram with Visual Studio*/
+
+using System;
 using System.Collections.Generic;
 using System.Linq;
 
@@ -8,9 +11,12 @@ namespace School
     {
         static void Main()
         {
-            Teacher Jekov = new Teacher("Professor", "Jekov", 28, new List<Disciplines>() { Disciplines.CSS, Disciplines.JavaScriptPartI});
-            Teacher Niki = new Teacher("Nikolay", "Kostov", 23, new List<Disciplines>() { Disciplines.CSharpPartI, Disciplines.CSharpPartII, Disciplines.OOP });
-            Teacher Joro = new Teacher("Georgi", "Georgiev", 22, new List<Disciplines>() { Disciplines.CSharpPartI, Disciplines.CSharpPartII, Disciplines.OOP,Disciplines.JavaScriptPartI });
+            Teacher Jekov = new Teacher("Professor", "Jekov", 28, new List<Disciplines>() { Disciplines.CSS,
+                Disciplines.JavaScriptPartI});
+            Teacher Niki = new Teacher("Nikolay", "Kostov", 23, new List<Disciplines>() { Disciplines.CSharpPartI, 
+                Disciplines.CSharpPartII, Disciplines.OOP });
+            Teacher Joro = new Teacher("Georgi", "Georgiev", 22, new List<Disciplines>() { Disciplines.CSharpPartI,
+                Disciplines.CSharpPartII, Disciplines.OOP,Disciplines.JavaScriptPartI });
             ICollection<Teacher> class2Teachers = new List<Teacher>()
             {
                 Niki,
@@ -44,15 +50,16 @@ namespace School
             classI.AddStudent(jeko);
             classI.AddTeacher(Jekov);
             classI.RemoveDiscipline(Disciplines.CSharpPartII);
-            classI.RemoveDiscipline(Disciplines.CSharpPartI);
+            classI.RemoveDiscipline(Disciplines.CSharpPartI);            
 
             SchoolClass classII = new SchoolClass("Class II - Panters", studentsInClassII, classIDisciplines,class2Teachers);
-            
+            classII.AddComment("Very good class");
 
             Console.WriteLine(classI);
+            Console.WriteLine(classI.TextComment);
             Console.WriteLine();
             Console.WriteLine(classII);
-                        
+            Console.WriteLine(classII.TextComment);
         }
     }
 }
