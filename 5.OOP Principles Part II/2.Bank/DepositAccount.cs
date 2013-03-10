@@ -1,13 +1,19 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
-namespace Bank
+﻿namespace Bank
 {
     public class DepositAccount : Account
     {
+        public DepositAccount()
+            : base()
+        {
+
+        }
+
+        /// <summary>
+        /// Constructor for DepositAccount
+        /// </summary>
+        /// <param name="customer">Customer instance</param>
+        /// <param name="balance">How much</param>
+        /// <param name="interest">Mothly Interest rate in %</param>
         public DepositAccount(Customer customer, decimal balance, decimal interest)
             : base(customer, balance, interest)
         {
@@ -19,7 +25,7 @@ namespace Bank
         /// <param name="sum"></param>
         public void Withdraw(decimal sum)
         {
-            if (this.balance < sum)
+            if (this.Balance < sum)
             {
                 throw new BankException("Balance of this account is less than thew sum you're trying to withdraw.");
             }
@@ -29,19 +35,19 @@ namespace Bank
             }
             else
             {
-                this.balance -= sum;
+                this.Balance -= sum;
             }
         }
 
-        protected override decimal CalculateInterest(int numberMonths, decimal interestRate)
+        public override decimal CalculateInterest(int numberMonths)
         {
-            if (this.balance < 1000)
+            if (this.Balance < 1000)
             {
                 return 0;
             }
             else
             {
-                return base.CalculateInterest(numberMonths, interestRate);
+                return base.CalculateInterest(numberMonths);
             }
         }
     }

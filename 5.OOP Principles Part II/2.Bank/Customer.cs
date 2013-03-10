@@ -1,11 +1,12 @@
 ﻿using System;
-using System.Collections.Generic;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace Bank
 {
+    /// <summary>
+    /// Creates an instance of the Customer class with name and type.
+    /// Name and CustomerType can be set on creation and after that are read-only properties 
+    /// </summary>
     public class Customer
     {
         private string name;

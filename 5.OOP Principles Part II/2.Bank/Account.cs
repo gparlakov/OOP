@@ -1,38 +1,39 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
-namespace Bank
+﻿namespace Bank
 {
-    public abstract class Account
+    public abstract class Account : IInterestCalculatable
     {
         protected Customer customer;
-        protected decimal balance;
-        protected decimal iterest;        
-
-        protected virtual decimal CalculateInterest(int numberMonths, decimal interestRate)
+        private decimal balance;
+        private decimal interest;      
+                
+        public Account()
         {
-            return numberMonths * interestRate;
         }
 
         /// <summary>
         /// Constructor for mother-class
         /// </summary>
-        /// <param name="customer">Person or Institution</param>
-        /// <param name="balance"></param>
-        /// <param name="interest"></param>
-        public Account (Customer customer, decimal balance, decimal interest)
+        /// <param name="customer">Customer instance</param>
+        /// <param name="balance">How much</param>
+        /// <param name="interest">Mothly Interest rate in %</param>
+        public Account(Customer customer, decimal balance, decimal interest)
+            :this()
         {
             this.customer = customer;
             this.Balance = balance;
-            this.Iterest = interest; 
+            this.Interest = interest;             
         }
 
-        private decimal Balance
+        /// <summary>
+        /// Changes the Balance of this account. Only child classes have access to change it
+        /// </summary>
+        public decimal Balance
         {
-            set
+            get
+            {
+                return this.balance;
+            }
+            protected set
             {
                 if (value < 0)
                 {
@@ -45,9 +46,16 @@ namespace Bank
             }
         }
 
-        private decimal Iterest
+        /// <summary>
+        /// Sets and gets the montly interest rate in % for this account. Only child classes have access to change it
+        /// </summary>
+        public decimal Interest
         {
-            set
+            get
+            {
+                return this.interest;
+            }
+            protected set
             {
                 if (value < 0)
                 {
@@ -55,13 +63,13 @@ namespace Bank
                 }
                 else
                 {
-                    this.iterest = value;
+                    this.interest = value;
                 }
             }
         }
 
         /// <summary>
-        /// Deposin non-negative ammount in accound
+        /// Deposit non-negative ammount in account
         /// </summary>
         /// <param name="sum"></param>
         public virtual void Deposit(decimal sum)
@@ -74,7 +82,16 @@ namespace Bank
             {
                 this.balance += sum;
             }
-        }        
-      
+        }
+
+        //the mother method which is overloaded in the child-classes 
+        public virtual decimal CalculateInterest(int numberMonths)
+        {
+            return this.Interest / 100 * numberMonths * this.Balance;
+        }
     }
+  
+    
+  
+    
 }

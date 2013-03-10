@@ -5,6 +5,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "1.Shape", "1.Shape\1.Shape.
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "2.Bank", "2.Bank\2.Bank.csproj", "{B2C137DD-D6BC-4A2C-81C2-58B0148A6653}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "3.InvalidRangeExceptionGeneric", "3.InvalidRangeExceptionGeneric\3.InvalidRangeExceptionGeneric.csproj", "{E8FF390B-C601-48BA-9433-238EDADEE30C}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -19,6 +21,10 @@ Global
 		{B2C137DD-D6BC-4A2C-81C2-58B0148A6653}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{B2C137DD-D6BC-4A2C-81C2-58B0148A6653}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{B2C137DD-D6BC-4A2C-81C2-58B0148A6653}.Release|Any CPU.Build.0 = Release|Any CPU
+		{E8FF390B-C601-48BA-9433-238EDADEE30C}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{E8FF390B-C601-48BA-9433-238EDADEE30C}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{E8FF390B-C601-48BA-9433-238EDADEE30C}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{E8FF390B-C601-48BA-9433-238EDADEE30C}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
