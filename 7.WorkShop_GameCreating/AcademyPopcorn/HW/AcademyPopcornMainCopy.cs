@@ -59,7 +59,7 @@ namespace HomeWork
             //TrailObject trail = new TrailObject(new MatrixCoords(15,6),new char[,] {{'.'}}, 4);
             //engine.AddObject(trail);
 
-            //task 6 Meteorite Ball
+            //task 6 and 7 Meteorite Ball
             MeteoriteBall meteoriteBall = new MeteoriteBall(theBall.TopLeft, theBall.Speed, 3);
             engine.AddObject(meteoriteBall);
         }
