@@ -76,8 +76,6 @@ namespace AcademyPopcorn
   
         private void RemoveOldRacket()
         {
-            //TODO: we should remove the previous racket from this.allObjects
-
             //task 3:remove from list of objects to render
             RemoveRacketFrom(this.allObjects);
 

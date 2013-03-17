@@ -9,7 +9,7 @@ namespace HomeWork
 {
     public class Gift : MovingObject
     {
-        //public static const Oth;
+        public const string CollisionGroupString = "gift";
 
         public Gift(MatrixCoords topLeft)
             : base(topLeft, new char[,]{{'G'}},new MatrixCoords(1,0))
@@ -19,6 +19,11 @@ namespace HomeWork
         public override bool CanCollideWith(string otherCollisionGroupString)
         {
             return otherCollisionGroupString == "racket";
+        }
+
+        public override string GetCollisionGroupString()
+        {
+            return Gift.CollisionGroupString;
         }
 
         public override void RespondToCollision(CollisionData collisionData)
