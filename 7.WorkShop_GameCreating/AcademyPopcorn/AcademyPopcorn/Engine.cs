@@ -25,7 +25,7 @@ namespace AcademyPopcorn
             this.staticObjects = new List<GameObject>();
             this.TimeToSleep = 500;
         }
-
+        //task 2 make timeToSleep an option in constructor
         public Engine(IRenderer renderer, IUserInterface userInterface, int timeToSleep)
             : this(renderer, userInterface)
         {

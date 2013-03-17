@@ -9,8 +9,6 @@ namespace HomeWork
     {
         private int timeToLive;
 
-
-
         public MeteoriteBall(MatrixCoords coords, MatrixCoords speed, int timeToLive)
             : base(coords, speed)
         {
@@ -19,7 +17,7 @@ namespace HomeWork
 
         public override IEnumerable<GameObject> ProduceObjects()
         {
-            return new List<GameObject> { new TrailObject(this.topLeft/* - this.Speed*/, new char[,] { { '.' } }, 3) };
+            return new List<GameObject> { new TrailObject(this.topLeft, new char[,] { { '.' } }, this.timeToLive)};
         }
 
     }

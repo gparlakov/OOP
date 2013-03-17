@@ -43,9 +43,15 @@
   <ItemGroup>
     <Compile Include="AcademyPopcornMainCopy.cs" />
     <Compile Include="EngineInherited.cs" />
+    <Compile Include="ExplodingBlock.cs" />
+    <Compile Include="Gift.cs" />
+    <Compile Include="GiftBlock.cs" />
     <Compile Include="MeteoriteBall.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Shrapnel.cs" />
     <Compile Include="TrailObject.cs" />
+    <Compile Include="UnpassableBlock.cs" />
+    <Compile Include="UnstopableBall.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />

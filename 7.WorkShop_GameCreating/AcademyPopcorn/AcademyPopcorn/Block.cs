@@ -12,7 +12,6 @@ namespace AcademyPopcorn
         public Block(MatrixCoords topLeft)
             : base(topLeft, new char[,] { { '#' } })
         {
-
         }
 
         public override void Update()
@@ -22,7 +21,7 @@ namespace AcademyPopcorn
 
         public override bool CanCollideWith(string otherCollisionGroupString)
         {
-            return otherCollisionGroupString == "ball";
+            return otherCollisionGroupString == "ball" || otherCollisionGroupString =="unstopableBall" || otherCollisionGroupString == "meteoriteBall" || otherCollisionGroupString == "object";
         }
 
         public override void RespondToCollision(CollisionData collisionData)

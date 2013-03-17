@@ -19,23 +19,34 @@ namespace HomeWork
             int startCol = 0;
             int endCol = WorldCols - 2;
 
-            for (int i = startCol; i < endCol; i++)
+            for (int i = startCol; i <= endCol; i++)
             {
+                
                 Block currBlock = new Block(new MatrixCoords(startRow, i));
-
                 engine.AddObject(currBlock);
+
+                //clear the exploding block's positions
+                if (i != 6 && i !=15 )
+                {
+                   Block currBlock2 = new Block(new MatrixCoords(startRow+1, i));
+                   engine.AddObject(currBlock2); 
+                }
+                 
+
+                //task 8 and 9 - unstopableBall and unpassableBlock
+                UnpassableBlock currUnstBlock = new UnpassableBlock(new MatrixCoords(WorldRows / 2 + 1, i), 1);                
+                engine.AddObject(currUnstBlock);
             }
-
-            Ball theBall = new Ball(new MatrixCoords(WorldRows / 2, 0),
-                new MatrixCoords(-1, 1));
-
-            engine.AddObject(theBall);
+             
+            //old ball
+            //Ball theBall = new Ball(new MatrixCoords(WorldRows / 2, 0),
+            //    new MatrixCoords(-1, 1));                      
 
             Racket theRacket = new Racket(new MatrixCoords(WorldRows - 1, WorldCols / 2), RacketLength);
 
             engine.AddObject(theRacket);
 
-            //1.Task
+            //1.Task - walls
             for (int i = 0; i < WorldRows; i++)
             {
                 Block nextLeft = new IndestructibleBlock(new MatrixCoords(i, 0));
@@ -52,7 +63,7 @@ namespace HomeWork
             }
 
             //task 3 Add second racket
-            Racket secondRacket = new Racket(new MatrixCoords(WorldRows - 2, (WorldCols - 1) / 2), 3);
+            Racket secondRacket = new Racket(new MatrixCoords(WorldRows - 2, (WorldCols - 1) / 2), 10);
             engine.AddObject(secondRacket);
 
             //task 5 Trail Object
@@ -60,8 +71,22 @@ namespace HomeWork
             //engine.AddObject(trail);
 
             //task 6 and 7 Meteorite Ball
-            MeteoriteBall meteoriteBall = new MeteoriteBall(theBall.TopLeft, theBall.Speed, 3);
-            engine.AddObject(meteoriteBall);
+            //MeteoriteBall meteoriteBall = new MeteoriteBall(theBall.TopLeft, theBall.Speed, 3);
+            //engine.AddObject(meteoriteBall);
+
+            //task 8 and 9 - unstopableBall and unpassableBlock
+            Ball theBall = new Ball(new MatrixCoords(WorldRows / 2, 0),
+                new MatrixCoords(-1, 1));
+            engine.AddObject(theBall);
+
+            //task 10 - exploding block
+            ExplodingBlock explodingBlock = new ExplodingBlock(new MatrixCoords(4,15));            
+            engine.AddObject(explodingBlock);
+            
+
+            //task 11 and 12 Gift Block and Gift moving object
+            GiftBlock giftBlock = new GiftBlock(new MatrixCoords(4, 6));
+            engine.AddObject(giftBlock);
         }
 
         static void Main(string[] args)
