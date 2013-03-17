@@ -1,8 +1,8 @@
 ﻿namespace Student
 {
-    enum University 
+    public enum University 
     {
-        Technichal_Uneversity_Sofia = 0,
+        Technichal_University_Sofia = 0,
         University_of_Sofia = 1,
         UNSS = 2,
         VIAZ = 3,
