@@ -49,13 +49,13 @@ namespace StudentsSearch
          
             //task 5 LINQ
             var nameSelectionOrdered = from st in students
-                                       orderby st.FirstName,st.LastName                                       
+                                       orderby st.FirstName descending,st.LastName descending                                      
                                        select st;
 
             PrintCollection(nameSelectionOrdered, "\nOrder by first name, last name  LINQ\n------------");
 
             //task 5 w/o LINQ
-            students = students.OrderBy(x => x.FirstName).ThenBy(x => x.LastName).ThenBy(x => x.Age).ToList();
+            students = students.OrderByDescending(x => x.FirstName).ThenByDescending(x => x.LastName).ThenBy(x => x.Age).ToList();
             PrintCollection(students, "\nOrder by first name, last name w/o LINQ\n------------");
         }
   
