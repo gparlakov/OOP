@@ -1,0 +1,178 @@
+Index: 6.DevisibleBy3And7.csproj
+===================================================================
+--- 6.DevisibleBy3And7.csproj	(revision 0)
++++ 6.DevisibleBy3And7.csproj	(working copy)
+@@ -0,0 +1,58 @@
++﻿<?xml version="1.0" encoding="utf-8"?>
++<Project ToolsVersion="4.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
++  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
++  <PropertyGroup>
++    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
++    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
++    <ProjectGuid>{A0C4D7BC-CF5E-48A0-BCE1-89451F758647}</ProjectGuid>
++    <OutputType>Exe</OutputType>
++    <AppDesignerFolder>Properties</AppDesignerFolder>
++    <RootNamespace>DevisibleBy3And7</RootNamespace>
++    <AssemblyName>DevisibleBy3And7</AssemblyName>
++    <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
++    <FileAlignment>512</FileAlignment>
++  </PropertyGroup>
++  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
++    <PlatformTarget>AnyCPU</PlatformTarget>
++    <DebugSymbols>true</DebugSymbols>
++    <DebugType>full</DebugType>
++    <Optimize>false</Optimize>
++    <OutputPath>bin\Debug\</OutputPath>
++    <DefineConstants>DEBUG;TRACE</DefineConstants>
++    <ErrorReport>prompt</ErrorReport>
++    <WarningLevel>4</WarningLevel>
++  </PropertyGroup>
++  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
++    <PlatformTarget>AnyCPU</PlatformTarget>
++    <DebugType>pdbonly</DebugType>
++    <Optimize>true</Optimize>
++    <OutputPath>bin\Release\</OutputPath>
++    <DefineConstants>TRACE</DefineConstants>
++    <ErrorReport>prompt</ErrorReport>
++    <WarningLevel>4</WarningLevel>
++  </PropertyGroup>
++  <ItemGroup>
++    <Reference Include="System" />
++    <Reference Include="System.Core" />
++    <Reference Include="System.Xml.Linq" />
++    <Reference Include="System.Data.DataSetExtensions" />
++    <Reference Include="Microsoft.CSharp" />
++    <Reference Include="System.Data" />
++    <Reference Include="System.Xml" />
++  </ItemGroup>
++  <ItemGroup>
++    <Compile Include="DevisibleBy3And7Test.cs" />
++    <Compile Include="Properties\AssemblyInfo.cs" />
++  </ItemGroup>
++  <ItemGroup>
++    <None Include="App.config" />
++  </ItemGroup>
++  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
++  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
++       Other similar extension points exist, see Microsoft.Common.targets.
++  <Target Name="BeforeBuild">
++  </Target>
++  <Target Name="AfterBuild">
++  </Target>
++  -->
++</Project>
+\ No newline at end of file
+Index: App.config
+===================================================================
+--- App.config	(revision 0)
++++ App.config	(working copy)
+@@ -0,0 +1,6 @@
++﻿<?xml version="1.0" encoding="utf-8" ?>
++<configuration>
++    <startup> 
++        <supportedRuntime version="v4.0" sku=".NETFramework,Version=v4.5" />
++    </startup>
++</configuration>
+\ No newline at end of file
+Index: DevisibleBy3And7Test.cs
+===================================================================
+--- DevisibleBy3And7Test.cs	(revision 0)
++++ DevisibleBy3And7Test.cs	(working copy)
+@@ -0,0 +1,56 @@
++﻿/*Write a program that prints from given array of integers all numbers that
++ * are divisible by 7 and 3. Use the built-in extension methods and lambda 
++ * expressions. Rewrite the same with LINQ.*/
++
++using System;
++using System.Collections.Generic;
++using System.Linq;
++
++
++namespace DevisibleBy3And7
++{
++    class DevisibleBy3And7Test
++    {
++        static void Main()
++        {
++            int[] aGivenArray = new int[1000];
++            for (int i = 0; i < aGivenArray.Length; i++)
++			{
++                aGivenArray[i] = i;
++			}
++
++            var lambdaSelection = aGivenArray.Select(num =>
++                {
++                    if (num % 3 == 0 && num % 7 == 0)
++                        return num;
++                    else return -1;
++                }).Where(num => num > 0);
++
++            // OR JUST
++
++            var labdaSelShorter = aGivenArray.Where(num => num % 3 == 0 && num % 7 == 0).OrderBy(num=>num);
++            
++            var LINQSelection = from num in aGivenArray
++                                where num % 3 == 0 && num % 7 == 0
++                                orderby num descending
++                                select num;
++
++            PrintCollection(lambdaSelection, "Labda selection");
++            PrintCollection(labdaSelShorter, "Labda selection shorter ascending");
++            PrintCollection(LINQSelection, "LINQ selection descending");
++            
++
++            
++        }
++  
++        private static void PrintCollection(IEnumerable<int> collection,string message)
++        {
++            Console.WriteLine("-----------\n" + message);
++            foreach (var num in collection)
++            {
++                Console.Write(num + " ");
++            }
++            Console.WriteLine();
++        }
++    }
++}
+Index: Properties/AssemblyInfo.cs
+===================================================================
+--- Properties/AssemblyInfo.cs	(revision 0)
++++ Properties/AssemblyInfo.cs	(working copy)
+@@ -0,0 +1,36 @@
++﻿using System.Reflection;
++using System.Runtime.CompilerServices;
++using System.Runtime.InteropServices;
++
++// General Information about an assembly is controlled through the following 
++// set of attributes. Change these attribute values to modify the information
++// associated with an assembly.
++[assembly: AssemblyTitle("DevisibleBy5And7")]
++[assembly: AssemblyDescription("")]
++[assembly: AssemblyConfiguration("")]
++[assembly: AssemblyCompany("")]
++[assembly: AssemblyProduct("DevisibleBy5And7")]
++[assembly: AssemblyCopyright("Copyright ©  2013")]
++[assembly: AssemblyTrademark("")]
++[assembly: AssemblyCulture("")]
++
++// Setting ComVisible to false makes the types in this assembly not visible 
++// to COM components.  If you need to access a type in this assembly from 
++// COM, set the ComVisible attribute to true on that type.
++[assembly: ComVisible(false)]
++
++// The following GUID is for the ID of the typelib if this project is exposed to COM
++[assembly: Guid("f21a5845-ca25-46d4-8247-18ab2077bc68")]
++
++// Version information for an assembly consists of the following four values:
++//
++//      Major Version
++//      Minor Version 
++//      Build Number
++//      Revision
++//
++// You can specify all the values or you can default the Build and Revision Numbers 
++// by using the '*' as shown below:
++// [assembly: AssemblyVersion("1.0.*")]
++[assembly: AssemblyVersion("1.0.0.0")]
++[assembly: AssemblyFileVersion("1.0.0.0")]
