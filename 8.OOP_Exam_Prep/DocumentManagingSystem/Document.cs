@@ -65,6 +65,10 @@ namespace DocumentManagingSystem
 
             foreach (var prop in orederedProperties)
             {
+                if (prop.Value != null && prop.Value.ToString() != "0")
+                {
+                    
+                }
                 toStringBuilder.Append(prop.Key + "=" + prop.Value + ";");
             }
             toStringBuilder.Remove(toStringBuilder.Length - 1, 1);

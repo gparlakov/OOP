@@ -4,7 +4,7 @@
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
-    <ProjectGuid>{A0C4D7BC-CF5E-48A0-BCE1-89451F758647}</ProjectGuid>
+    <ProjectGuid>{BA7B36F4-71AE-4C21-A7E3-D545E75E12C4}</ProjectGuid>
     <OutputType>Exe</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
     <RootNamespace>DevisibleBy3And7</RootNamespace>

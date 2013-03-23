@@ -302,9 +302,16 @@ namespace DocumentManagingSystem
 
         private static void ListDocuments()
         {
-            foreach (var docu in allDocuments)
+            if (allDocuments.Count > 0)
             {
-                Console.WriteLine(docu);
+                foreach (var docu in allDocuments)
+                {
+                    Console.WriteLine(docu);
+                }
+            }
+            else
+            {
+                Console.WriteLine("No documents found");
             }
         }
 
