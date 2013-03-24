@@ -1,6 +1,6 @@
 ﻿
-Microsoft Visual Studio Solution File, Format Version 12.00
-# Visual Studio 2012
+Microsoft Visual Studio Solution File, Format Version 11.00
+# Visual Studio 2010
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "1,2,3.Student", "1.Student\1,2,3.Student.csproj", "{6EB195B1-61E4-45C7-8970-77E9D685FB51}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "4.Person", "4.Person\4.Person.csproj", "{02637A1A-80A5-4A98-BCCB-D851C4CC302C}"

@@ -9,11 +9,11 @@ namespace BinarySearchTree
     {
         static void Main()
         {
-            BinarySearchTree<string> tree = new BinarySearchTree<string>(new TreeNode<string>("text"));
-            foreach (var branch in tree)
-            {
-                Console.WriteLine(branch);
-            }
+            //BinarySearchTree<string> tree = new BinarySearchTree<string>(new TreeNode<string>("text"));
+            //foreach (var branch in tree)
+            //{
+            //    Console.WriteLine(branch);
+            //}
         }
     }
 }
