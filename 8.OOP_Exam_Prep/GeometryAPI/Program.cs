@@ -572,13 +572,16 @@ namespace GeometryAPI
 
         public Vector3D GetNormal()
         {
-            Vector3D center = this.GetCenter();
-            Vector3D A = new Vector3D(center.X + this.Radius, center.Y, center.Z),
-                B = new Vector3D(center.X, center.Y + this.Radius, center.Z);
+			return new Vector3D(0,0,1);
+			
+			//this is not needed since cirlce is always in XY plane and the normal vector with manitude of 1 is 0,0,1
+            // Vector3D center = this.GetCenter();
+            // Vector3D A = new Vector3D(center.X + this.Radius, center.Y, center.Z),
+                // B = new Vector3D(center.X, center.Y + this.Radius, center.Z);
 
-            Vector3D normal = Vector3D.CrossProduct(center - A, center - B);
-            normal.Normalize();
-            return normal;
+            // Vector3D normal = Vector3D.CrossProduct(center - A, center - B);
+            // normal.Normalize();
+            // return normal;
         }
 
         public double GetArea()
