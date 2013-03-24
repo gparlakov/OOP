@@ -1,39 +1,24 @@
 ﻿using System;
-using System.Collections.Generic;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace Person
 {
     internal class Person
     {
-        private string name;
-        private int? age;
-
-        public string Name
-        {
-            get { return this.name; }
-            set { this.name = value; }
-        }       
-
-        public int? Age
-        {
-            get { return this.age; }
-            set { this.age = value; }
-        }
-
         public Person(string name)
         {
             this.Name = name;
             this.Age = null;
         }
 
-        public Person(string name,int age)
-            :this(name)
-        {            
+        public Person(string name, int age) : this(name)
+        { 
             this.Age = age;
         }
+
+        public string Name { get; set; }
+
+        public int? Age { get; set; }
 
         public override string ToString()
         {
@@ -44,12 +29,10 @@ namespace Person
             }
             else
             {
-                personString += " " + age;
+                personString += string.Format(" {0}", this.Age);
             }
 
             return personString;
         }
-
-
     }
 }
